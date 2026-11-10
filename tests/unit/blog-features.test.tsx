@@ -88,8 +88,9 @@ describe('04: Blog 博客列表与文章详情流水线 (Issue 04)', () => {
       expect(html).toContain('ghost-folio')
       expect(html).toContain('26')
       // Contains all published posts
-      expect(html).toContain('停更两个月后，我想明白了一件事')
-      expect(html).toContain('顶尖的开发者在出题，而我们只是在答卷')
+      for (const post of getAllPosts()) {
+        expect(html).toContain(post.title)
+      }
     })
 
     it('renders PostRow with print-pile sheets, dithered thumbnail, dotted leader and date', () => {
@@ -173,8 +174,10 @@ describe('04: Blog 博客列表与文章详情流水线 (Issue 04)', () => {
       expect(html).toContain('字数')
       // Minimap ID
       expect(html).toContain('post-document-minimap')
-      // Related posts section
-      expect(html).toContain('post-related')
+      // Related posts section only renders when other posts exist
+      if (posts.length > 1) {
+        expect(html).toContain('post-related')
+      }
     })
   })
 

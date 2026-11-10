@@ -5,7 +5,7 @@
   "files": {
     "app/globals.css": "b150ff668a35ff58d103e33a1878ae3f11df3382e9edd40121a6dafc86e2d394",
     "app/layout.tsx": "df9b6be60da5ad5cc1619c5650d4f2c25337c4d1a3f6d2e595d47ddeef1bac43",
-    "app/page.tsx": "831c33b34881ef8f65aeab55caa78c5d073836befa239e7e95ff56deeb57190a",
+    "app/page.tsx": "18603a4b1cc507d1a94ca6c5c4c6296d7df7e896ea99cb804bacaefd477fdf64",
     "app/blog/page.tsx": "e3280b4e5d27c7f9e313ebb5091a89ff01b3c3bd215d32ad53084365745eb0a2",
     "app/projects/page.tsx": "cfc4362ef0cf68689861911fa8d5a790ae85b07d5a3569a0adc5a14003ce7bc6",
     "app/photos/page.tsx": "38d887504faf2de061c25f2566ecd05973878966480ea824a9688b9fd0341144",

@@ -76,8 +76,8 @@
 | `companyEn` | `string` | 是 | 机构/项目/公司英文名称 |
 | `role` | `string` | 是 | 中文职责/阶段描述 |
 | `roleEn` | `string` | 是 | 英文职责描述 |
-| `from` | `number` | 是 | 起始年份（如 `2025`） |
-| `to` | `number` | 否 | 结束年份（若为当前进行中则省略 `to`，系统自动显示 `Present` 绿色呼吸灯） |
+| `from` | `string` | 是 | 起始时间（如 `'2026.04'`） |
+| `to` | `string` | 否 | 结束时间（若为当前进行中则省略 `to`，系统自动显示 `Present` 绿色呼吸灯） |
 | `url` | `string` | 否 | 关联成果或官网外部链接 |
 
 ---
@@ -94,7 +94,7 @@
 | `genre` | `string` | 是 | 音乐流派（如 `'Soundtrack'`, `'Pop'`, `'Rock'`） |
 | `spineColor` | `string` | 是 | 唱片书脊 16 进制颜色（如 `'#b83b32'`） |
 | `spineInk` | `string` | 是 | 唱片文字墨色（如 `'#f7f4ed'`） |
-| `cover` | `string` | 是 | 唱片封套图片（如 `'/images/records/jie-yao.jpg'`，1:1 正方形） |
+| `cover` | `string` | 是 | 唱片封套图片（如 `'/images/records/starboy.jpg'`，1:1 正方形） |
 | `art` | `string` | 是 | 黑胶盘芯贴纸图（通常同 cover） |
 | `url` | `string` | 是 | 网易云音乐/Spotify 直达播放链接 |
 | `mood` | `string` | 是 | 中文心境标签（如 `'放松时听'`, `'专注时听'`） |

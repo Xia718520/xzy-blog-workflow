@@ -9,6 +9,7 @@ import { HalftonePortrait } from '~/components/halftone-portrait'
 import { PortraitHiddenStage } from '~/components/portrait-hidden-stage'
 import { NavCards } from '~/components/nav-cards'
 import { ExperienceSection } from '~/components/experience'
+import { WritingSection } from '~/components/writing-section'
 import { VinylShelf } from '~/components/vinyl-shelf'
 import { Bookshelf } from '~/components/bookshelf'
 
@@ -44,6 +45,9 @@ export default async function HomePage(): Promise<React.JSX.Element> {
 
       {/* 01 // 经历 (Experience & Coordinate Card) */}
       <ExperienceSection />
+
+      {/* 02 // 写作 (Latest Writing) */}
+      <WritingSection posts={posts} />
 
       {/* 03 // 循环播放中 (Vinyl Record Shelf) */}
       <VinylShelf />
