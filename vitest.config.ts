@@ -15,6 +15,6 @@ export default defineConfig({
     env: {
       NODE_ENV: 'development',
     },
-    exclude: [...configDefaults.exclude, '.scratch/**', 'tests/browser/**', '.claude/**', '.agents/**', 'promo-project/**'],
+    exclude: [...configDefaults.exclude, '.scratch/**', 'tests/browser/**', '.claude/**', '.agents/**'],
   },
 })

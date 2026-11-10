@@ -135,7 +135,6 @@ describe('Issue 05 & 06: Projects, Photos & Discovery Gateways', () => {
       expect(urls.some((u) => u.endsWith('/photos'))).toBe(true)
 
       const posts = getAllPosts()
-      expect(posts.length).toBeGreaterThanOrEqual(1)
       for (const post of posts) {
         expect(urls.some((u) => u.includes(`/blog/${post.slug}`))).toBe(true)
       }

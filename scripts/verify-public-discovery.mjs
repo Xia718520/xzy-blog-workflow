@@ -17,7 +17,7 @@ const blogSlugs = fs
   .map((d) => d.name)
   .sort()
 
-assert.ok(blogSlugs.length >= 1, `At least 1 blog article must exist, found: ${blogSlugs.length}`)
+assert.ok(fs.existsSync(blogDir), 'content/blog directory must exist (it may be empty)')
 for (const slug of blogSlugs) {
   assert.match(slug, /^[a-z0-9-]+$/, `Invalid slug name format: ${slug}`)
 }

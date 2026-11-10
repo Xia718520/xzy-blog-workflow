@@ -1,5 +1,5 @@
-// 芯火个人品牌资产注册表 — The Personal Registry for 芯火 (Xinhuo)
-// 严禁出现任何“星火”错别字，严格使用「芯火」
+// 夏正印（GeneXia）个人品牌资产注册表 — The Personal Registry for GeneXia
+// 全站严禁出现“星火”错别字
 
 export interface BrandConfig {
   name: string
@@ -31,38 +31,40 @@ export interface BrandConfig {
 }
 
 export const brandConfig: BrandConfig = {
-  name: '创作者',
-  enName: 'Creator',
-  tagline: '数字创作者 ·「AI 生产力 + 认知复利」· 开源工作流探索者',
-  taglineEn: 'Digital Creator · AI Productivity & Personal Leverage',
-  bio: '一名专注于用 AI 工具链与终身自学重塑个人认知的数字创作者。在这里真实记录实用自学工作流、敏捷开发交付与工具构建。',
-  bioEn: 'A digital creator obsessed with exploring AI-driven workflows, personal leverage, and continuous self-education.',
-  heroIntroZh: '一名专注于「AI 生产力 + 认知复利」的数字创作者；',
-  heroIntroEn: 'a digital creator focused on AI workflows and personal leverage. ',
+  name: '夏正印',
+  enName: 'GeneXia',
+  tagline: '以技术为底色，以沟通为桥梁，以成长为信仰；不甘于定义自己，始终保持好奇与野心，在技术与商业的交汇处，探索更广阔的世界',
+  taglineEn:
+    'Technology as the foundation, communication as the bridge, growth as the faith; never defined by others, always curious and ambitious, exploring a wider world where technology meets business',
+  bio: '不甘于定义自己，始终保持好奇与野心，在技术与商业的交汇处，探索更广阔的世界。',
+  bioEn:
+    'Unwilling to be defined by others, always curious and ambitious, exploring a wider world where technology meets business.',
+  heroIntroZh: '以技术为底色，以沟通为桥梁，以成长为信仰；',
+  heroIntroEn: 'a technologist grounded in technology, a communicator building bridges, and a believer in growth. ',
   avatar: '/images/avatar.png',
   headshotLight: '/images/headshot.jpg',
   headshotDark: '/images/portrait-square.jpg',
-  poster: '/images/portrait-poster.png',
-  location: 'Hangzhou, China (UTC+8)',
+  poster: '/images/portrait-poster.jpg',
+  location: 'Wuhan, Hubei, China (UTC+8)',
   timezone: 'Asia/Shanghai',
   timezoneLabel: 'UTC+8',
-  city: 'Hangzhou',
+  city: '武汉',
   locationCoordinates: {
-    lat: '30.2741° N',
-    lng: '120.1551° E',
+    lat: '30.5928° N',
+    lng: '114.3055° E',
   },
 }
 
 export const personalInfo = {
-  name: '创作者',
-  enName: 'Creator',
-  email: 'creator@example.com',
-  handle: 'creator',
-  githubUser: 'creator',
-  github: 'https://github.com',
-  xiaoHongShu: 'https://www.xiaohongshu.com',
+  name: '夏正印',
+  enName: 'GeneXia',
+  email: '2724152780@qq.com',
+  handle: 'GeneXia',
+  githubUser: 'Xia718520',
+  github: 'https://github.com/Xia718520',
+  xiaoHongShu: '', // 小红书没有主页外链，改以二维码渠道展示（见 lib/channels.ts 的 extraChannels）
   xiaoBaoTong: '', // 仅做字样展示，后续有真实专栏时再接入跳转
-  weChatOfficial: '创作者笔记',
+  weChatOfficial: 'XooZooY99',
   weChatOfficialQr: '/images/wechat-qr.jpg',
 }
 
@@ -128,7 +130,7 @@ export interface Record_ {
   audioSrc?: string
 }
 
-// 芯火 6 首定番音乐原版封面与外链
+// 6 首定番音乐原版封面与外链
 export const records: Record_[] = [
   {
     artist: '坂本龙一',
@@ -241,7 +243,7 @@ export interface Book {
   commentEn: string
 }
 
-// 芯火 8 本珍藏原书正封与直达链接
+// 8 本珍藏原书正封与直达链接
 export const books: Book[] = [
   {
     title: '史蒂夫·乔布斯传',

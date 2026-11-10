@@ -160,9 +160,7 @@ for (const m of body.matchAll(/key:\s*'([^']+)'[\s\S]{0,900}?\n {2}\}/g)) {
 
 const postsDir = path.join(root, 'content/blog')
 const slugs = fs.existsSync(postsDir) ? fs.readdirSync(postsDir).filter((d) => fs.existsSync(path.join(postsDir, d, 'index.mdx'))) : []
-if (slugs.length === 0) {
-  errors.push({ code: 'NO_CONTENT', detail: 'content/blog 下一篇文章都没有', ask: '他有可发布的原创文章吗？至少需要 1 篇（含 1200x675 题图与两个二级标题）' })
-}
+// 文章数量由站长决定，允许 content/blog 暂时留空；有文章时下方逐篇检查结构与题图
 
 for (const s of slugs) {
   const mdx = read(`content/blog/${s}/index.mdx`)

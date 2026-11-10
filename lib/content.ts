@@ -10,14 +10,7 @@ export const TICKS_BETWEEN_LANDMARKS = 3
 
 function getScannedPostSlugs(): string[] {
   if (typeof process === 'undefined' || !fs.existsSync(POSTS_DIR)) {
-    return [
-      'reflecting-after-two-months',
-      'concept-visualization',
-      'top-developers-make-questions',
-      'vibecoding-deployment-guide',
-      'weekly-review-2026-06-15',
-      'campus-data-card-for-alma-mater',
-    ]
+    return []
   }
   try {
     return fs

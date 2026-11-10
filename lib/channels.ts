@@ -65,7 +65,8 @@ function legacyChannels(): Channel[] {
       key: 'github',
       label: 'GitHub',
       labelEn: 'GitHub',
-      kind: 'github-heatmap',
+      // 外链形态让标签行内渲染章鱼猫图标；要恢复贡献热力图弹窗把这里改回 'github-heatmap'
+      kind: 'external',
       href: personalInfo.github
         ? `${personalInfo.github}?tab=repositories`
         : `https://github.com/${user}?tab=repositories`,
@@ -88,8 +89,9 @@ function legacyChannels(): Channel[] {
   if (personalInfo.email) {
     list.push({
       key: 'email',
-      label: '邮箱',
-      labelEn: 'Email',
+      // 保留信封悬浮卡片（kind: 'email'）；行内矢量图标与该悬浮框在内核渲染里互斥，标签用 ✉ 字符充当图标
+      label: '✉ 邮箱',
+      labelEn: '✉ Email',
       kind: 'email',
       href: `mailto:${personalInfo.email}`,
       icon: 'mail',
@@ -99,7 +101,55 @@ function legacyChannels(): Channel[] {
   return list
 }
 
-export const extraChannels: Channel[] = []
+export const extraChannels: Channel[] = [
+  {
+    // 微信：外链形态让标签行内渲染微信图标，点击打开二维码大图（要恢复悬停弹窗就把 kind 改回 'qr-image' 并补 image 字段）
+    key: 'wechat',
+    label: '微信',
+    labelEn: 'WeChat',
+    kind: 'external',
+    href: '/images/wechat-qr.jpg',
+    icon: 'wechat',
+    tone: 'text-emerald-600 dark:text-emerald-400',
+    showIn: ['home', 'footer'],
+  },
+  {
+    // 小红书：点击直接跳个人主页（新标签打开）
+    key: 'xiaohongshu',
+    label: '小红书',
+    labelEn: 'RED',
+    kind: 'external',
+    href: 'https://xhslink.cn/o/5UKNDrZPXN2',
+    icon: 'xiaohongshu',
+    tone: 'text-rose-600 dark:text-rose-400',
+    showIn: ['home', 'footer'],
+  },
+  {
+    // 抖音主页：点击直接跳个人主页（新标签打开）
+    key: 'douyin',
+    label: '抖音',
+    labelEn: 'Douyin',
+    kind: 'external',
+    href: 'https://v.douyin.com/zlSxxFgn9dk/',
+    icon: 'douyin',
+    tone: 'text-neutral-900 dark:text-neutral-100',
+    showIn: ['home', 'footer'],
+  },
+  {
+    // 底栏的抖音二维码按钮（底栏 K 代码只渲染 qr-image 渠道，保持弹窗形态）
+    key: 'douyin-qr',
+    label: '抖音',
+    labelEn: 'Douyin',
+    kind: 'qr-image',
+    image: '/images/douyin-qr.jpg',
+    hint: '抖音扫一扫 · 关注我',
+    dockLabel: '抖音',
+    dockLabelEn: 'Douyin',
+    icon: 'douyin',
+    tone: 'text-neutral-900 dark:text-neutral-100',
+    showIn: ['dock'],
+  },
+]
 export const disabledChannels: string[] = []
 
 export function getChannels(): Channel[] {

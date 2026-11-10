@@ -23,6 +23,8 @@ import { SiteFooter } from '~/components/site-footer'
 import { LanguageProvider } from '~/lib/i18n'
 import { ThemeProvider } from '~/lib/theme'
 import { brandConfig, personalInfo } from '~/lib/personal'
+import { getChannels } from '~/lib/channels'
+import { uiLabels } from '~/lib/ui-labels'
 import bakedGithub from '~/content/github.json'
 
 describe('Subagent 2: Micro-interactions & Social Cards 1:1 Verification', () => {
@@ -100,7 +102,7 @@ describe('Subagent 2: Micro-interactions & Social Cards 1:1 Verification', () =>
         </LanguageProvider>
       )
 
-      const user = personalInfo.githubUser || personalInfo.handle || 'Dragon-01-you'
+      const user = personalInfo.githubUser || personalInfo.handle || 'Xia718520'
       const expectedHref = personalInfo.github
         ? `${personalInfo.github}?tab=repositories`
         : `https://github.com/${user}?tab=repositories`
@@ -156,7 +158,7 @@ describe('Subagent 2: Micro-interactions & Social Cards 1:1 Verification', () =>
   })
 
   describe('3. BottomDock & SiteFooter Social Hygiene', () => {
-    it('BottomDock includes brand logo slot and opens WeChat modal on interaction', () => {
+    it('BottomDock includes brand logo slot and opens the dock QR channel (Douyin) modal on interaction', () => {
       const container = document.createElement('div')
       document.body.appendChild(container)
       const root = createRoot(container)
@@ -175,17 +177,24 @@ describe('Subagent 2: Micro-interactions & Social Cards 1:1 Verification', () =>
       const brandSlot = container.querySelector('[data-brand-slot="logo-symbol"]')
       expect(brandSlot).not.toBeNull()
 
-      // Click WeChat button to open modal
-      const wechatName = personalInfo.weChatOfficial || brandConfig.name
-      const wechatBtn = container.querySelector(`button[aria-label="查看${wechatName}微信公众号二维码"]`) as HTMLButtonElement
-      expect(wechatBtn).not.toBeNull()
+      // 底栏二维码按钮取 dock 槽位里第一个 qr-image 渠道，当前配置为抖音二维码渠道 douyin-qr；aria-label 与底栏组件同一取值来源
+      const dockQr = getChannels().find((c) => c.kind === 'qr-image' && c.showIn.includes('dock'))
+      expect(dockQr).toBeDefined()
+      if (!dockQr) return
+      expect(dockQr.key).toBe('douyin-qr')
+      const expectedAria =
+        dockQr.key === 'wechat'
+          ? `查看${dockQr.label || brandConfig.name}微信公众号二维码`
+          : uiLabels.dockQrAria.zh.replace('{channel}', dockQr.label)
+      const dockBtn = container.querySelector(`button[aria-label="${expectedAria}"]`) as HTMLButtonElement
+      expect(dockBtn).not.toBeNull()
 
       act(() => {
-        wechatBtn.click()
+        dockBtn.click()
       })
 
-      expect(container.innerHTML).toContain(wechatName)
-      expect(decodeURIComponent(container.innerHTML)).toContain(personalInfo.weChatOfficialQr || '/images/wechat-qr.jpg')
+      expect(container.innerHTML).toContain(dockQr.label)
+      expect(decodeURIComponent(container.innerHTML)).toContain(dockQr.image)
 
       act(() => {
         root.unmount()

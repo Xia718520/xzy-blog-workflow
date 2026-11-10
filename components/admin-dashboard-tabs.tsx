@@ -40,7 +40,7 @@ export const brandConfig = {
   avatar: '/images/avatar.png',
   headshotLight: '/images/headshot.jpg',
   headshotDark: '/images/portrait-square.jpg',
-  poster: '/images/portrait-poster.png',
+  poster: '/images/portrait-poster.jpg',
   location: ${JSON.stringify(form.location)},
   locationCoordinates: {
     lat: ${JSON.stringify(form.lat)},

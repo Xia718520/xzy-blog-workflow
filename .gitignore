@@ -8,6 +8,7 @@ test-results/
 playwright-report/
 shots/
 *.tsbuildinfo
+__pycache__/
 
 .scratch/
 

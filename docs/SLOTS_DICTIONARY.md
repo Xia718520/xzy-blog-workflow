@@ -208,8 +208,10 @@ draft: false
 
 ### 2.10 渠道图标库 (`IconKey` in `lib/channel-icons.tsx`)
 
-内置 17 个高品质通用矢量图标，无需引入任何第三方图标包：
+内置通用矢量图标（无需引入任何第三方图标包）：
 `wechat`, `xiaohongshu`, `github`, `xiaobaotong`, `newspaper`, `mail`, `rss`, `book`, `archive`, `podcast`, `video`, `microblog`, `forum`, `scholar`, `store`, `photography`, `writing`, `community`, `link`。
+
+另有图片型图标 key `douyin`：在 `lib/channel-icons.tsx` 的 `IMAGE_GLYPHS` 表里指向 `public/images/douyin-icon.png`，`ChannelGlyph` 会直接渲染这张位图。
 
 ---
 
