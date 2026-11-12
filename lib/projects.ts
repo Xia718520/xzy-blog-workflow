@@ -63,13 +63,4 @@ export const projects: Project[] = [
     icon: '/images/projects/mimometer.png',
     domain: 'github.com',
   },
-  {
-    name: '学校信息库与数据活名片',
-    nameEn: 'Campus Living Data Card',
-    description: '2025.10 为母校江西工业工程职业技术学院打造的招生与就业数据名片系统，把枯燥数字转化为可交互看板。',
-    descriptionEn: 'Campus admissions and career statistics interactive dashboard engineered for Jiangxi Engineering Vocational College.',
-    url: '/blog/campus-data-card-for-alma-mater',
-    icon: '/images/projects/campus-data-card.png',
-    domain: 'xinhuo.ai',
-  },
 ]
