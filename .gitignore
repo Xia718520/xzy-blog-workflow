@@ -12,5 +12,8 @@ __pycache__/
 
 .scratch/
 
+# 互动数据（点赞、评论、访客）本地 JSON 存储
+data/
+
 # Raw browser recordings
 raw_recordings/

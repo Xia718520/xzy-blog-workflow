@@ -3,11 +3,14 @@ import { notFound } from 'next/navigation'
 import React from 'react'
 
 import { BrailleDate } from '~/components/braille-date'
+import { CommentSection } from '~/components/comment-section'
+import { LikeButton } from '~/components/like-button'
 import { PixelCluster } from '~/components/pixel-cluster'
 import { PolaroidCover } from '~/components/polaroid-cover'
 import { PostBody } from '~/components/post-body'
 import { PostRow } from '~/components/post-row'
 import { PostToc } from '~/components/post-toc'
+import { VisitorCounter } from '~/components/visitor-counter'
 import {
   buildPostRail,
   getAllPosts,
@@ -151,6 +154,13 @@ export default async function BlogPostPage({ params }: PageProps): Promise<React
         </header>
 
         <PostBody html={renderedHtml} />
+
+        <div className="hairline-top flex flex-wrap items-center justify-between gap-4 pt-6">
+          <LikeButton slug={post.slug} />
+          <VisitorCounter />
+        </div>
+
+        <CommentSection slug={post.slug} />
 
         {related.length > 0 && (
           <aside
